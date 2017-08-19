@@ -1,0 +1,21 @@
+#Rewrite your pay program using try and except so that your program handles non-numeric input gracefully by printing a message and exiting the program.
+hours = input('How many hours have you worked this week?\n')
+try:
+    ival1 = int(hours)
+except:
+    ival1 = -1
+if ival1 > 0:
+    print('nice work')
+rate = input('What is your hourly rate?\n')
+npay = float(hours) * float(rate)
+#ohours calculates any overtime for hours in excess of 40 hours if any
+ohours = (float(hours) - 40) * (float(rate) * 1.5)
+#opayn calualtes the normal 40 hour week
+opayn = 40 * float(rate)
+if float(hours) < 40:
+    print ('Your Gross Pay for this week is ${0:.2f} '.format(npay))
+elif float(ohours) > 0:   
+    print ('Your Gross Pay including overtime for this week is ${0:.2f} '.format(opayn+ohours))
+else:
+    print('Please enter numeric input')
+# This still needs work. Not sure how to manage try and except for large program
